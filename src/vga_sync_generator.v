@@ -40,7 +40,7 @@ module vga_sync_generator (
         else
             hpos <= hpos + 1;
 
-        hsync <= (hpos >= H_SYNC_START && hpos <= H_SYNC_END);
+        hsync <= ~(hpos >= H_SYNC_START && hpos <= H_SYNC_END);
     end
 
     // Vertical counter
@@ -54,7 +54,7 @@ module vga_sync_generator (
                 vpos <= vpos + 1;
         end
 
-        vsync <= (vpos >= V_SYNC_START && vpos <= V_SYNC_END);
+        vsync <= ~(vpos >= V_SYNC_START && vpos <= V_SYNC_END);
     end
 
     // Visible area
